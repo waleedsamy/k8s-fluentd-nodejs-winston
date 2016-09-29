@@ -7,7 +7,7 @@ ENV PATH /home/fluent/.gem/ruby/2.3.0/bin:$PATH
 USER root
 RUN apk --no-cache --update add sudo build-base ruby-dev && \
 
-    sudo -u fluent gem install fluent-plugin-elasticsearch fluent-plugin-record-reformer fluent-plugin-secure-forward fluent-plugin-grok-parser fluent-plugin-prometheus fluent-plugin-grep && \
+    sudo -u fluent gem install fluent-plugin-elasticsearch fluent-plugin-record-reformer fluent-plugin-secure-forward fluent-plugin-parser fluent-plugin-grok-parser fluent-plugin-prometheus fluent-plugin-grep && \
     rm -rf /home/fluent/.gem/ruby/2.3.0/cache/*.gem && sudo -u fluent gem sources -c && \
     apk del sudo build-base ruby-dev && rm -rf /var/cache/apk/*
 
@@ -19,6 +19,7 @@ EXPOSE 24231
 USER fluent
 
 COPY fluent.conf /fluentd/etc/
+COPY plugins/json_in_string.rb /fluentd/plugins/
 
 # to have the permission to access /var/lib/docker/containers and /var/log/containers
 USER root
