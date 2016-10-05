@@ -5,6 +5,7 @@ module Fluent
     class JsonInStringParser < Parser
       Plugin.register_parser("json_in_string", self)
 
+      config_param :time_key, :string, :default => "time" # time_format is configurable
       config_param :time_format, :string, :default => nil # time_format is configurable
 
       def configure(conf)
@@ -18,11 +19,10 @@ module Fluent
       def parse(input)
         begin
           output = (input.is_a?(Hash)) ? (input) : (JSON.parse(input))
-          time = @time_parser.parse(output['timestamp'])
+          time = @time_parser.parse(output[@time_key])
           yield time, output
         rescue
-          raw = { "raw" => input }
-          yield raw
+          yield input
         end
       end
     end
