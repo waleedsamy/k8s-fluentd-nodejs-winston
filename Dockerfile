@@ -12,7 +12,7 @@ RUN apk --no-cache --update add sudo build-base ruby-dev && \
     apk del sudo build-base ruby-dev && rm -rf /var/cache/apk/*
 
 # listen port 24224 for Fluentd forward protocol
-EXPOSE 24284
+EXPOSE 24224
 # prometheus plugin expose metrics at 0.0.0.0:24231/metrics
 EXPOSE 24231
 
