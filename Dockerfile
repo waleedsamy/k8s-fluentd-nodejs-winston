@@ -28,8 +28,11 @@ COPY plugins/json_in_string.rb /fluentd/plugins/
 USER root
 ENV ELASTICSEARCH_HOST elasticsearch
 ENV ELASTICSEARCH_PORT 9200
+ENV ELASTICSEARCH_INDEX logstash
 
 ENV SLACK_WEBHOOK_URL https://hooks.slack.com/services/XXX/XXX/XXX
 ENV SLACK_CHANNEL general
+
+ENV KIBANA_HOST http://kibana.internal.domain.com
 
 CMD exec fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins/ $FLUENTD_OPT
