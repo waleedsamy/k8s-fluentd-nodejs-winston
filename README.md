@@ -23,6 +23,7 @@ your log message will look like `{"log":"message","stream":"stdout","time":"2016
 
 #### Notes
 * Elasticsearch Host and port are configured with environment variables `ELASTICSEARCH_HOST`, `ELASTICSEARCH_INDEX` and `ELASTICSEARCH_PORT`, and both have a default value `elasticsearch` and `9200` respectively.
+* `ELASTICSEARCH_USER` and `ELASTICSEARCH_PASSWORD` env may contains credentials to your elasticsearch
 * Slack is configured by `SLACK_WEBHOOK_URL` and `SLACK_CHANNEL`
 * `KIBANA_HOST` should contain link for your kibana host.
 * Fluentd configuration is based on [gcp-fluentd](https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-gcp/fluentd-gcp-image) and [fabric8io/docker-fluentd-kubernetes](https://hub.docker.com/r/fabric8/fluentd-kubernetes)
