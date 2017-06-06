@@ -22,7 +22,12 @@ your log message will look like `{"log":"message","stream":"stdout","time":"2016
 ```
 
 #### Notes
-* Elasticsearch Host and port are configured with environment variables `ELASTICSEARCH_HOST`, `ELASTICSEARCH_INDEX` and `ELASTICSEARCH_PORT`, and both have a default value `elasticsearch` and `9200` respectively.
+* Elasticsearch Host and port are configured with environment variables
+  `ELASTICSEARCH_HOST` default is elasticsearch
+  `ELASTICSEARCH_INDEX` default is logstash
+  `ELASTICSEARCH_SCHEMA` default is http
+  `ELASTICSEARCH_SSL_VERIFY` default is false
+  `ELASTICSEARCH_PORT`default is 9200
 * `ELASTICSEARCH_USER` and `ELASTICSEARCH_PASSWORD` env may contains credentials to your elasticsearch
 * Slack is configured by `SLACK_WEBHOOK_URL` and `SLACK_CHANNEL`
 * `KIBANA_HOST` should contain link for your kibana host.
